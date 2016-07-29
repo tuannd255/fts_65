@@ -59,6 +59,9 @@ p {
 }
 /* footer */
 footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -74,10 +77,8 @@ footer small {
   float: left;
 }
 footer ul {
-  float: right;
   list-style: none;
 }
 footer ul li {
-  float: left;
   margin-left: 15px;
 }
