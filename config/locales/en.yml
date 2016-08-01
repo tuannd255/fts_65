@@ -58,6 +58,9 @@ en:
       not_saved:
         one: 1 error prohibited this %{resource} from being saved
         other: "%{count} errors prohibited this %{resource} from being saved"
+  flash:
+    not_authorized: You don't have permition to do this action
+    record_not_found: Sorry, no record of %{column_name} was found!
   footer:
     content: Footer
   home:
@@ -66,11 +69,29 @@ en:
     name: Home
     signup: Sign up
     title: Welcome to Training Framgia App
+  button:
+    new: Create
+    edit: Edit
   log_in: Log in
   log_out: Log out
   rails: Rails tutorial
   signup: Sign up now!
+  subjects:
+    title: Subjects
+    new: Create subject
+    name: Name
+    question_number: Question number
+    duration: Duration
+    new_subject: Create subject
+    create:
+      success: Subject create success
+      fail: Can't not create
   title: Project 3
+  admin:
+    name: Admin page
+  error:
+    contain: The form contains
+    number: errors
   users:
     create: Sign up
     default_password: (If you sign in with facebook then default password is 12345678)

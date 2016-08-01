@@ -1,0 +1,20 @@
+<% provide :title, t("subjects.title") %>
+<div class="col col-md-8 col-md-offset-2">
+  <h1><%= t "subjects.title" %></h1>
+  <h3 class="center">
+    <%= link_to t("subjects.new_subject"), new_admin_subject_path,
+      class: "btn btn-success" %>
+  </h3>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th><%= t "subjects.name" %></th>
+        <th><%= t "subjects.question_number" %></th>
+        <th><%= t "subjects.duration" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @subjects %>
+    </tbody>
+  </table>
+</div>
