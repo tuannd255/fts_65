@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160728133351) do
 
   create_table "answers", force: :cascade do |t|
-    t.string   "snswer"
+    t.string   "answer"
     t.boolean  "is_correct"
     t.integer  "question_id"
     t.datetime "created_at",  null: false
@@ -50,10 +50,12 @@ ActiveRecord::Schema.define(version: 20160728133351) do
     t.boolean  "state"
     t.integer  "exam_id"
     t.integer  "question_id"
+    t.integer  "answer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
   add_index "results", ["exam_id"], name: "index_results_on_exam_id"
   add_index "results", ["question_id"], name: "index_results_on_question_id"
 
@@ -89,16 +91,17 @@ ActiveRecord::Schema.define(version: 20160728133351) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "password_degist"
-    t.boolean  "is_admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.boolean  "is_admin",               default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

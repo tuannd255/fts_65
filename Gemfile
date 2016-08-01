@@ -15,6 +15,7 @@ gem "jbuilder", "2.2.3"
 gem "paperclip", "5.0.0.beta1"
 gem "sdoc", "0.4.0", group: :doc
 gem "devise"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"
