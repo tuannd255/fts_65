@@ -23,4 +23,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  UNRANSACKABLE_ATTRIBUTES = ["id", "name", "email"]
+
+  def self.ransackable_attributes auth_object = nil
+    UNRANSACKABLE_ATTRIBUTES + _ransackers.keys
+  end
 end

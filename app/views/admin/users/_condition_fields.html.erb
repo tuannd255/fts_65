@@ -1,0 +1,17 @@
+<div class="field user-field">
+  <div class="col-md-3 height">
+    <%= f.attribute_fields do |a| %>
+      <%= a.attribute_select %>
+    <% end %>
+  </div>
+  <div class="col-md-3 height">
+    <%= f.predicate_select %>
+  </div>
+  <div class="col-md-3 height">
+    <%= f.value_fields do |v| %>
+      <%= v.text_field :value, class: "form-control" %>
+    <% end %>
+  </div>
+  <%= link_to t("users.remove"), "#",
+    class: "remove_fields btn btn-danger" %>
+</div>

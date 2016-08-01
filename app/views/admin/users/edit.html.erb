@@ -1,0 +1,19 @@
+<% provide :title, t("users.edit") %>
+<div class="col-md-6 col-md-offset-3">
+  <h2><%= t "users.edit" %></h2>
+  <%= form_for [:admin, @user] do |f| %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="actions center">
+      <%= f.submit t("button.edit"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
