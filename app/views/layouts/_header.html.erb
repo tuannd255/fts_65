@@ -14,6 +14,10 @@
           <li>
             <%= link_to t(:log_in), new_user_session_path %>
           </li>
+          <li>
+            <%= link_to t("home.log_in_with_fb"),
+              user_facebook_omniauth_authorize_path %>
+          </li>
         <% end %>
       </ul>
     </nav>

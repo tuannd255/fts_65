@@ -5,12 +5,21 @@ en:
   home:
     name: Home
     title: Welcome to Training Framgia App
+    log_in_with_fb: Log in with Facebook
+    signup: Sign up
+    min_chars: minimum characters
   log_in: Log in
   log_out: Log out
-  new: News
   rails: Rails tutorial
   signup: Sign up now!
   title: Project 3
+
+  users:
+    new: Sign up
+    edit: Edit
+    create: Sign up
+    leave_blank: Leave blank
+    minimum_password_length: Minimum password length %{minpasslength}
 
   devise:
     confirmations:
