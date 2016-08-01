@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "static_pages#home"
-    resources :subjects, only: [:new, :create, :index]
+    resources :subjects
   end
 end

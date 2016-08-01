@@ -1,5 +1,5 @@
 <tr id="subject-<%= subject.id %>">
-  <td><%= subject.name %></td>
+  <td><%= link_to subject.name, [:admin, subject] %></td>
   <td><%= subject.question_number %></td>
   <td><%= subject.duration %></td>
 </tr>

@@ -1,0 +1,24 @@
+<% provide :title, @subject.name %>
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t "subjects.name" %></th>
+        <th><%= t "subjects.question_number" %></th>
+        <th><%= t "subjects.duration" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <%= render @subject %>
+      </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <%= link_to t(:edit), edit_admin_subject_path(@subject),
+      class: "btn btn-primary" %>
+    <%= link_to t("button.delete"), [:admin, @subject], method: :delete,
+      class: "btn btn-danger",
+      data: {confirm: t("delete.confirm", name: @subject.name)} %>
+  </div>
+</div>
