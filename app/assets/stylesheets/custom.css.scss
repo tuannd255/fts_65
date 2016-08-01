@@ -2,9 +2,16 @@
 @import "bootstrap";
 
 /* universal */
-
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 body {
   padding-top: 50px;
+  position: relative;
+  margin: 0;
+  padding-bottom: 30px;
+  min-height: 100%;
 }
 section {
   overflow: auto;
@@ -66,6 +73,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  z-index: 20;
 }
 footer a {
   color: #555;
@@ -104,4 +112,8 @@ footer ul li {
   .form-control {
     color: $state-danger-text;
   }
+}
+.btn {
+  margin: 5px;
+  width: 150px;
 }

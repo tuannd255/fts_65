@@ -61,6 +61,7 @@ en:
   flash:
     not_authorized: You don't have permition to do this action
     record_not_found: Sorry, no record of %{column_name} was found!
+    subject_nil: Subject not found
   footer:
     content: Footer
   home:
@@ -71,11 +72,19 @@ en:
     title: Welcome to Training Framgia App
   button:
     new: Create
-    edit: Edit
+    edit: Save change
+    create: Create
+    update: Save change
+    delete: Delete
   log_in: Log in
+  edit: Edit
+  action: Action
   log_out: Log out
+  back: Back
   rails: Rails tutorial
   signup: Sign up now!
+  delete:
+    confirm: Are you sure delete %{name}?
   subjects:
     title: Subjects
     new: Create subject
@@ -83,9 +92,15 @@ en:
     question_number: Question number
     duration: Duration
     new_subject: Create subject
+    edit: Edit subject
     create:
       success: Subject create success
       fail: Can't not create
+    update:
+      success: Subject update seccess
+    delete:
+      success: Subject delete success
+      fail: Subject delete fail
   title: Project 3
   admin:
     name: Admin page
