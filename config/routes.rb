@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     root "static_pages#home"
     resources :subjects
     resources :users, except: [:new, :create]
-    resources :questions, only: [:index, :create, :new]
+    resources :questions, except: :show
   end
 end

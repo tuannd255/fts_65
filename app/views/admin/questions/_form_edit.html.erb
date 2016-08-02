@@ -1,4 +1,4 @@
-<div class="question-1">
+<div class="question-2">
   <%= form_for [:admin, @question] do |f| %>
     <%= render "devise/shared/error_messages", object: @question %>
     <%= f.label :subject_id, t("questions.subject") %>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <%= f.submit t("questions.add_question"),
+      <%= f.submit t("questions.edit_question"),
         class: "btn btn-primary" %>
       <%= add_fields_answer f, :answers %>
     </div>

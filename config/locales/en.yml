@@ -141,3 +141,10 @@ en:
     add_question: Create
     title: Questions
     new: Create question
+    update_success: Question update success
+    delete_success: Question deleted
+    delete_fail: Question delete fail
+    edit: Edit question
+    subject: Subject
+    edit_question: Edit question
+    all: All questions
