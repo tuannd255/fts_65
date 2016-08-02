@@ -76,6 +76,9 @@ en:
     create: Create
     update: Save change
     delete: Delete
+    init: Start
+    uncheck: View
+    checked: View
   log_in: Log in
   edit: Edit
   action: Action
@@ -148,3 +151,17 @@ en:
     subject: Subject
     edit_question: Edit question
     all: All questions
+  exams:
+    created_at: Created Date
+    subject: Subject
+    status: status
+    spent_time: Spent Time
+    score: Score
+    title: Exams
+    created: Exam created
+    create_fail: Exam create fail
+  time:
+    formats:
+      default: "%Y-%m-%d %r"
+      long:  "%B %d, %Y, %H:%M at %r"
+

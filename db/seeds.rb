@@ -10,15 +10,42 @@ User.create! name: "Admin", email: "admin@gmail.com",
     password_confirmation: password_confirmation
 end
 
-Subject.create! name: "MySQL", question_number: 3, duration: 5
-Subject.create! name: "Git", question_number: 3, duration: 1
-Subject.create! name: "Ruby", question_number: 5, duration: 10
+Subject.create! name: "MySQL", question_number: 3, duration: 20
+Subject.create! name: "Git", question_number: 3, duration: 15
+Subject.create! name: "Ruby", question_number: 5, duration: 20
 
-30.times do |n|
-  name = Faker::Name.last_name
-  question_number = Faker::Number.between(1, 10)
-  duration = Faker::Number.between(1, 5)
-  Subject.create! name: name,
-    question_number: question_number,
-    duration: duration
+subjects = Subject.all
+subjects.each do |subject|
+  5.times do
+    subject.questions.build(
+      question: Faker::Lorem.sentence,
+      question_type: 0).save
+  end
+  5.times do
+    subject.questions.build(
+      question: Faker::Lorem.sentence,
+      question_type: 1).save
+  end
+end
+
+questions = Question.all
+questions.single_choice.each do |question|
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: true).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: false).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: false).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: false).save
+end
+questions.multiple_choice.each do |question|
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: true).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: false).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: true).save
+  question.answers.build(answer: Faker::Lorem.characters(5),
+    is_correct: false).save
 end

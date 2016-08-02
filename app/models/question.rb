@@ -11,6 +11,8 @@ class Question < ActiveRecord::Base
 
   enum question_type: [:single_choice, :multiple_choice, :text]
 
+  scope :random, ->{order "RANDOM()"}
+
   RANSACKABLE_ATTRIBUTES = ["id", "question"]
 
   def self.ransackable_attributes auth_object = nil
