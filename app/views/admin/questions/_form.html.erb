@@ -1,0 +1,31 @@
+<%= form_for [:admin, @question] do |f| %>
+  <%= render "devise/shared/error_messages", object: @question %>
+  <%= f.label :subject_id, t("questions.subject") %>
+  <%= f.collection_select :subject_id, @subjects, :id, :name,
+    {include_blank: false}, class: "form-control" %>
+  <%= f.label :question, t("questions.content") %>
+  <%= f.text_field :question, class: "form-control" %>
+
+  <div class="col-sm-10 col-sm-offset-1">
+    <%= f.label :question_type, t("questions.question_type") %>
+    <%= f.select :question_type,
+      @question_types.collect {|k, v| [k.humanize, k]},
+      {include_blank: false}, class: "form-control question-type" %>
+    <h3><%= t :answers %></h3>
+    <div id="answers">
+      <div class="table">
+        <div>
+          <%= f.fields_for :answers do |answer_form| %>
+            <%= render "answer_fields", f: answer_form  %>
+          <% end %>
+          <div class="add_answer">
+            <%= link_to_add_field t("questions.add_answer"), f, :answers %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= f.submit t("questions.add_question"),
+      class: "btn btn-primary" %>
+    <%= add_fields_answer f, :answers %>
+  </div>
+<% end %>
