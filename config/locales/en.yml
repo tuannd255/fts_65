@@ -129,3 +129,15 @@ en:
     index: Index
     add_condition: Add Conditions
     all: All users
+  answers: Answers
+  questions:
+    create_success: Question created
+    create_fail: Question create fail
+    remove: Remove
+    subject: Subject
+    content: Content
+    question_type: Question type
+    add_answer: Add other answer
+    add_question: Create
+    title: Questions
+    new: Create question

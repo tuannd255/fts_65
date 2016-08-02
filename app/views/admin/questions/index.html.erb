@@ -1,0 +1,6 @@
+<% provide :title, t("questions.title") %>
+<div class="td-question">
+  <%= link_to t("questions.new"), new_admin_question_path,
+    class: "btn btn-primary" %>
+  <%= render @questions %>
+</div>
