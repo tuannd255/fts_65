@@ -30,3 +30,20 @@ var flash = function(){
 $(document).ready(flash);
 $(document).on('page:load', flash);
 $(document).on('page:change', flash);
+
+var add = function() {
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).closest('.field').remove();
+    return event.preventDefault();
+  });
+  $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+    checkbox();
+  });
+};
+
+$(document).on('page:change', add);

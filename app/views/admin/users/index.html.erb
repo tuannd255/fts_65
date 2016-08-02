@@ -1,0 +1,20 @@
+<% provide :title, t("users.index") %>
+<div class="col-md-8 col-md-offset-2 users">
+  <h1><%= t "users.all" %></h1>
+  <%= search_form_for @search, url: admin_users_path do |f| %>
+    <%= f.submit t("users.search"), class: "btn btn-success" %>
+    <%= f.condition_fields do |c| %>
+      <%= render "condition_fields", f: c %>
+    <% end %>
+    <%= link_to_add_fields t(:add_condition), f, :condition %>
+  <% end %>
+  <table class="table table-hover table-striped">
+    <tr>
+      <th><%= sort_link @search, :name, t("users.name") %></th>
+      <th><%= sort_link @search, :email, t("users.email") %></th>
+      <th><%= t :action %></th>
+    </tr>
+    <%= render @users %>
+  </table>
+  <%= paginate @users %>
+</div>

@@ -117,3 +117,15 @@ en:
     new: Sign up
     save: Save change
     setting: Setting
+    title: Users
+    edit: Edit
+    delete: Delete
+    updated: User updated
+    deleted: Delete user success
+    delete_fail: Delete user fail
+    sort: Sort
+    search: Search
+    remove: Remove
+    index: Index
+    add_condition: Add Conditions
+    all: All users

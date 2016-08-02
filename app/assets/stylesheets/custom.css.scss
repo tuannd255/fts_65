@@ -117,3 +117,17 @@ footer ul li {
   margin: 5px;
   width: 150px;
 }
+.height {
+  select {
+    @extend .form-control;
+  }
+}
+.users {
+  .btn {
+    margin: 0px;
+    width: 70px;
+  }
+  .user-field {
+    margin: 5px;
+  }
+}
