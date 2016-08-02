@@ -1,6 +1,26 @@
 <% provide :title, t("questions.title") %>
-<div class="td-question">
-  <%= link_to t("questions.new"), new_admin_question_path,
-    class: "btn btn-primary" %>
-  <%= render @questions %>
+<div class="td-question col-sm-8 col-sm-offset-2">
+  <h2><%= t "questions.all" %></h2>
+  <h2><%= link_to t("questions.new"), new_admin_question_path,
+    class: "btn btn-success" %></h2>
+  <%= search_form_for @search, url: admin_questions_path do |f| %>
+    <%= f.submit t("users.search"), class: "btn btn-success" %>
+    <%= f.condition_fields do |c| %>
+      <%= render "condition_fields", f: c %>
+    <% end %>
+    <%= link_to_add_fields t(:add_condition), f, :condition %>
+  <% end %>
+  <table class="table table-hover table-striped table-question">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :question, t("questions.title") %></th>
+        <th><%= sort_link @search, :subject, t("questions.subject") %></th>
+        <th><%= t :action %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @questions %>
+    </tbody>
+  </table>
+  <%= paginate @questions %>
 </div>

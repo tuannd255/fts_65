@@ -73,7 +73,12 @@ $(document).on('focus', '.question-type', function() {
   prev = this.value;
 });
 
-$(document).on('change load', '.question-type', function() {
+function remove_fields(link) {
+  $(link).prev('input[type=hidden]').val('1');
+  $(link).closest('.field').hide();
+}
+
+$(document).on('change load', '.question-1 .question-type', function() {
    if($(this).val() == 'single_choice') {
     $('input[type="checkbox"]').prop('checked', false);
     changeType();
@@ -105,12 +110,7 @@ $(document).on('change load', '.question-type', function() {
 });
 
 var remote = function(){
-  $('form').on('click', '.remove_fields', function(){
-    $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('fieldset').hide();
-    event.preventDefault();
-  });
-  $('form').on('click', '.add_fields', function(){
+  $('.td-question form').on('click', '.add_field', function(){
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
@@ -134,3 +134,32 @@ var check_single = function() {
 
 $(document).on('change', check_single);
 $(document).on('load', check_single);
+
+$(document).on('change load', '.question-2 .question-type', function() {
+  if($(this).val() == 'single_choice') {
+    $('input[type="checkbox"]').prop('checked', false);
+    $('.add_answer').show();
+    var allCheckboxs = $('.correct');
+    allCheckboxs.each(function(index, cb) {
+      $(cb).attr('checked', false);
+    });
+    if(prev == 'text'){
+      changeType();
+    }
+  } else if ($(this).val() == 'multiple_choice') {
+    $('input[type="checkbox"]').prop('checked', false);
+    $('.add_answer').show();
+    if(prev == 'text'){
+      changeType();
+    }
+  } else if($(this).val() == 'text') {
+    var x = $(this).val();
+    changeType();
+    addForm();
+    var allCheckboxs = $('.correct');
+    allCheckboxs.each(function(index, cb) {
+      $(cb).attr('checked', true);
+    })
+  }
+  prev = $(this).val();
+});
