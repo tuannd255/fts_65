@@ -1,0 +1,10 @@
+<tr>
+  <td><%= l exam.created_at, format: :default %></td>
+  <td><%= exam.subject.name %></td>
+  <td><div class="<%= exam.status %> center"><%= exam.status %></div></td>
+  <td><%= exam.subject.duration %></td>
+  <td><%= exam.subject.question_number %></td>
+  <td><%= exam.spent_time %></td>
+  <td><%= exam.score %></td>
+  <td><%= link_to t("button.#{exam.status}"), exam.init? ? "#" : "#" %></td>
+</tr>

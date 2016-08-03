@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users, only: [:edit, :update]
+  resources :exams, only: [:index, :create, :new]
 
   namespace :admin do
     root "static_pages#home"
