@@ -49,6 +49,10 @@ module ApplicationHelper
       .html_safe
   end
 
+  def time_form time
+    Time.at(time).utc.strftime t "time.formats.time_format"
+  end
+
   private
   def render_fields f, association
     new_object = f.object.class.reflect_on_association(association).klass.new
