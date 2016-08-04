@@ -62,6 +62,7 @@ en:
     not_authorized: You don't have permition to do this action
     record_not_found: Sorry, no record of %{column_name} was found!
     subject_nil: Subject not found
+    cant_access: Can not access
   footer:
     content: Footer
   home:
@@ -160,8 +161,23 @@ en:
     title: Exams
     created: Exam created
     create_fail: Exam create fail
+    updated: Exam updated
+    update_fail: Exam update fail
+    uncheck: View
+    init: Start
+    testing: Continue
+    checked: View
+    do_exam: Do exam %{name}
+    save: Save
+    finish: Finish
+    finish_warning: You wan't to finish?
+    result: "Score of exam: %{score}"
+    finished: Exam finished
   time:
     formats:
       default: "%Y-%m-%d %r"
-      long:  "%B %d, %Y, %H:%M at %r"
+      time_format: "%H:%M:%S"
+      long:  "%B %d, %Y at %r"
+  js:
+    alert: Your exam has timed out. Your test will be submitted automatically
 
