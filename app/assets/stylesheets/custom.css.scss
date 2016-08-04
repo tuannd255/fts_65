@@ -151,6 +151,10 @@ thead {
     border-radius: 4px;
   }
   .checked {
+    @extend .btn-danger;
+    border-radius: 4px;
+  }
+  .testing {
     @extend .btn-warning;
     border-radius: 4px;
   }
@@ -185,6 +189,9 @@ thead {
     width: 90px;
   }
 }
+.admin-exam {
+  top: 70px;
+}
 .do-exam {
   margin-top: 30px;
   .question-title {
@@ -211,9 +218,30 @@ thead {
       margin-left: 50px;
       font-weight: normal;
     }
+    .list-group-item-success {
+      color: #fff;
+      background-color: green;
+    }
   }
   .question-content:hover {
     background-color: #cecece;
+  }
+  .true {
+    select {
+      @extend .form-control;
+      width: 200px;
+      background-color: green;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+  .false {
+    select {
+      @extend .form-control;
+      width: 200px;
+      background-color: pink;
+      font-size: 18px;
+    }
   }
 }
 @media(max-width:1192px) {

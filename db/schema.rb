@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20160728133351) do
 
   create_table "exams", force: :cascade do |t|
     t.integer  "status",     default: 0
-    t.time     "spent_time", default: '2000-01-01 00:00:00'
+    t.integer  "spent_time", default: 0
     t.datetime "started_at"
     t.integer  "score",      default: 0
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id"
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20160728133351) do
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id"
 
   create_table "results", force: :cascade do |t|
-    t.boolean  "state"
+    t.boolean  "state",            default: false
     t.string   "multiple_answers"
     t.integer  "exam_id"
     t.integer  "question_id"
     t.integer  "answer_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "results", ["answer_id"], name: "index_results_on_answer_id"
