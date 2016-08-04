@@ -1,1 +1,1 @@
-<%= render "do_exam" if @exam.init? || @exam.testing? %>
+<%= @exam.init? || @exam.testing? ? (render "do_exam") : (render "show_exam") %>
