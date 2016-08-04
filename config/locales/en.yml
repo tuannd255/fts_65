@@ -134,6 +134,7 @@ en:
     add_condition: Add Conditions
     all: All users
   answers: Answers
+  check: Check
   questions:
     create_success: Question created
     create_fail: Question create fail
@@ -173,6 +174,10 @@ en:
     finish_warning: You wan't to finish?
     result: "Score of exam: %{score}"
     finished: Exam finished
+    updated: Exam updated
+    update_fail: Exam update fail
+    score_form: "%{score}/%{total}"
+    all: All exams
   time:
     formats:
       default: "%Y-%m-%d %r"
@@ -180,4 +185,7 @@ en:
       long:  "%B %d, %Y at %r"
   js:
     alert: Your exam has timed out. Your test will be submitted automatically
+  boolean:
+    true: true
+    false: false
 
