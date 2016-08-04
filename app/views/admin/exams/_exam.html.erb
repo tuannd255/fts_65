@@ -1,12 +1,14 @@
 <tr>
   <td><%= l exam.created_at, format: :default %></td>
   <td><%= exam.subject.name %></td>
-  <td><div class="<%= exam.status %> center"><%= exam.status %></div></td>
   <td><%= time_form exam.subject.duration.minutes %></td>
   <td><%= exam.subject.question_number %></td>
   <td><%= time_form exam.spent_time %></td>
   <td><%= t "exams.score_form", score: exam.score,
     total: exam.subject.question_number %></td>
-  <td><%= link_to t("exams.#{exam.status}"), exam_path(exam),
-    class: "btn btn-primary btn-view" unless exam.uncheck? %></td>
+  <td><div class="<%= exam.status %> center"><%= exam.status %></div></td>
+  <td>
+    <%= link_to t(:check), edit_admin_exam_path(exam),
+      class: "btn btn-primary btn-view" unless exam.init? || exam.testing? %>
+  </td>
 </tr>

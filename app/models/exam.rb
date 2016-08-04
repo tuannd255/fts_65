@@ -26,6 +26,12 @@ class Exam < ActiveRecord::Base
       subject.duration * Settings.minutes : time
   end
 
+  def update_state_for_results
+    results.each do |result|
+      result.update_state
+    end
+  end
+
   private
   def create_result_for_exam
     Result.transaction do
@@ -33,7 +39,7 @@ class Exam < ActiveRecord::Base
         unless results.any?
           subject.questions.random.limit(
             subject.question_number).each do |question|
-              question.results.create! exam: self
+              question.results.create! exam: self, multiple_answers: []
           end
         end
       rescue

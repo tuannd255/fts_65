@@ -41,6 +41,7 @@ class ExamsController < ApplicationController
       if @exam.time_out? || params[:finish]
         flash[:success] = t "exams.updated"
         @exam.uncheck!
+        @exam.update_state_for_results
       end
     else
       flash[:danger] = t "exams.update_fail"
