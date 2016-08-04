@@ -10,9 +10,9 @@ User.create! name: "Admin", email: "admin@gmail.com",
     password_confirmation: password_confirmation
 end
 
-Subject.create! name: "MySQL", question_number: 3, duration: 20
-Subject.create! name: "Git", question_number: 3, duration: 15
-Subject.create! name: "Ruby", question_number: 5, duration: 20
+Subject.create! name: "MySQL", question_number: 10, duration: 20
+Subject.create! name: "Git", question_number: 8, duration: 15
+Subject.create! name: "Ruby", question_number: 6, duration: 20
 
 subjects = Subject.all
 subjects.each do |subject|
