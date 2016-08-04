@@ -1,3 +1,4 @@
 page: 5
 default_password: 12345678
 default_number_of_answers: 2
+minutes: 60

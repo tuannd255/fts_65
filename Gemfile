@@ -18,6 +18,8 @@ gem "devise"
 gem "omniauth-facebook"
 gem "cancancan"
 gem "ransack", "1.7"
+gem "i18n-js", ">= 3.0.0.rc11"
+gem "jquery-countdown-rails"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"
