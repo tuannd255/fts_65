@@ -3,6 +3,7 @@ class CreateSuggestQuestions < ActiveRecord::Migration
     create_table :suggest_questions do |t|
       t.string :question
       t.integer :question_type
+      t.integer :status, default: 0
       t.references :user, index: true, foreign_key: true
       t.references :subject, index: true, foreign_key: true
 

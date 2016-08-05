@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :exams, except: :destroy
+  resources :suggest_questions, except: :show
 
   namespace :admin do
     root "static_pages#home"

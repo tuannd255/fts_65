@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 20160728133351) do
   create_table "questions", force: :cascade do |t|
     t.string   "question"
     t.integer  "question_type"
+    t.integer  "status",        default: 0
     t.integer  "subject_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id"
@@ -82,10 +83,11 @@ ActiveRecord::Schema.define(version: 20160728133351) do
   create_table "suggest_questions", force: :cascade do |t|
     t.string   "question"
     t.integer  "question_type"
+    t.integer  "status",        default: 0
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "suggest_questions", ["subject_id"], name: "index_suggest_questions_on_subject_id"

@@ -253,3 +253,27 @@ thead {
     }
   }
 }
+.suggest-question {
+  td {
+    width: 25%;
+  }
+  .btn-suggest {
+    width: 70px;
+    margin: 0;
+  }
+  .wait {
+    @extend .btn-warning;
+    width: 35px;
+    border-radius: 4px;
+  }
+  .approve {
+    @extend .btn-success;
+    width: 35px;
+    border-radius: 4px;
+  }
+  .reject {
+    @extend .btn-danger;
+    width: 35px;
+    border-radius: 4px;
+  }
+}
