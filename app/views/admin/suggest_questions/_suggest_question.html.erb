@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to suggest_question.question,
+    admin_suggest_question_path(suggest_question) %></td>
+  <td><%= suggest_question.subject.name %></td>
+  <td>
+    <span class="<%= suggest_question.status %>">
+      <%= suggest_question.status %>
+    </span>
+  </td>
+  <td>
+    <% if suggest_question.wait? %>
+      <%= render "button", status: t(:approve),
+        suggest_question: suggest_question %>
+      <%= render "button", status: t(:reject),
+        suggest_question: suggest_question %>
+    <% end %>
+  </td>
+</tr>

@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :create]
     resources :questions, except: :show
     resources :exams, only: [:index, :edit, :update]
+    resources :suggest_questions, only: [:index, :update, :show]
   end
 end

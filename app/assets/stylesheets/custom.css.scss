@@ -144,23 +144,28 @@ thead {
 .exams-index {
   .init {
     @extend .btn-primary;
+    padding: 2px;
     border-radius: 4px;
   }
   .uncheck {
     @extend .btn-info;
+    padding: 2px;
     border-radius: 4px;
   }
   .checked {
     @extend .btn-danger;
+    padding: 2px;
     border-radius: 4px;
   }
   .testing {
     @extend .btn-warning;
+    padding: 2px;
     border-radius: 4px;
   }
   .btn-view {
     margin: 0px;
     width: 80px;
+    padding: 3px;
   }
 }
 #clock {
@@ -260,20 +265,37 @@ thead {
   .btn-suggest {
     width: 70px;
     margin: 0;
+    padding: 2px;
   }
   .wait {
     @extend .btn-warning;
-    width: 35px;
+    padding: 3px;
     border-radius: 4px;
   }
   .approve {
     @extend .btn-success;
-    width: 35px;
+    padding: 3px;
     border-radius: 4px;
   }
   .reject {
     @extend .btn-danger;
-    width: 35px;
+    padding: 3px;
     border-radius: 4px;
+  }
+}
+.admin-suggest-question {
+  td {
+    width: 20%;
+  }
+  .btn {
+    width: 60px;
+    margin: 0;
+    padding: 2px;
+  }
+  .btn-approve {
+    @extend .btn-primary;
+  }
+  .btn-reject {
+    @extend .btn-danger;
   }
 }

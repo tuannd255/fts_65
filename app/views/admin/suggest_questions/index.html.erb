@@ -1,0 +1,27 @@
+<% provide :title, t("suggest_questions.title") %>
+<div class="td-question col-sm-10 col-sm-offset-1
+  admin-suggest-question suggest-question">
+  <h1><%= t "suggest_questions.all" %></h1>
+  <table class="table table-hover table-striped table-question">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :user,
+          t("users.title") %>
+        </th>
+        <th><%= sort_link @search, :question,
+          t("questions.title") %>
+        </th>
+        <th><%= sort_link @search, :subject,
+          t("suggest_questions.subject") %>
+        </th>
+        <th><%= sort_link @search, :status,
+          t("suggest_questions.status") %></th>
+        <th><%= t :action %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @suggest_questions %>
+    </tbody>
+  </table>
+  <%= paginate @suggest_questions %>
+</div>
