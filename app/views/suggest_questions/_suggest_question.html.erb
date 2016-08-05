@@ -1,0 +1,17 @@
+<tr>
+  <td><%= suggest_question.question %></td>
+  <td><%= suggest_question.subject.name %></td>
+  <td>
+    <div class="<%= suggest_question.status %>">
+      <%= suggest_question.status %>
+    </div>
+  </td>
+  <td>
+    <%= link_to t("suggest_questions.edit"),
+      edit_suggest_question_path(suggest_question),
+      class: "btn btn-primary btn-suggest" %>
+    <%= link_to t("button.delete"), suggest_question_path(suggest_question),
+      method: :delete, class: "btn btn-danger btn-suggest",
+      data: {confirm: t("delete.confirm", name: t("suggest_questions.title"))} %>
+  </td>
+</tr>

@@ -12,6 +12,7 @@ class Ability
       end
     else
       can [:read, :create, :update], Exam
+      can :manage, SuggestQuestion
       if namespace == "admin"
         cannot :manage, :all
       end

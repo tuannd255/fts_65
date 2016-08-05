@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for current_user
-    current_user.is_admin? ? admin_root_path : root_path
+    current_user.is_admin? ? admin_exams_path : exams_path
   end
 
   rescue_from ActiveRecord::RecordNotFound do
