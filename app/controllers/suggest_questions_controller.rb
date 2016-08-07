@@ -1,10 +1,12 @@
 class SuggestQuestionsController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource only: :index
   before_action :load_params, only: [:new, :edit]
 
   def index
+    @suggest_questions = current_user.suggest_questions
     @search = @suggest_questions.search params[:q]
-    @suggest_questions = @search.result.page params[:page]
+    @suggest_questions = @search.result.order(:status).page params[:page]
     @search.build_condition
   end
 
@@ -14,6 +16,8 @@ class SuggestQuestionsController < ApplicationController
   end
 
   def create
+    @suggest_question = current_user.suggest_questions
+      .build suggest_question_params
     if @suggest_question.save
       flash[:success] = t "questions.create_success"
       redirect_to suggest_questions_path
@@ -48,7 +52,7 @@ class SuggestQuestionsController < ApplicationController
   private
   def suggest_question_params
     params.require(:suggest_question).permit :question, :question_type,
-      :subject_id, :status,
+      :subject_id, :status, :user_id,
       suggest_answers_attributes: [:id, :answer, :is_correct, :_destroy]
   end
 

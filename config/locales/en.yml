@@ -135,6 +135,8 @@ en:
     all: All users
   answers: Answers
   check: Check
+  approve: approve
+  reject: reject
   questions:
     create_success: Question created
     create_fail: Question create fail
@@ -162,7 +164,7 @@ en:
     question_type: Question type
     add_answer: Add other answer
     add_question: Create
-    title: Questions
+    title: Suggest Questions
     new: Create question
     update_success: Question update success
     delete_success: Question deleted
@@ -173,7 +175,11 @@ en:
     all: Suggested Questions
     status: Status
     deleted: Question deleted
-    delete_fail: Question delete fail
+    update_fail: Question update fail
+    approve: Approve
+    reject: reject
+    answer: Answer
+    correct: Correct
   exams:
     created_at: Created Date
     subject: Subject

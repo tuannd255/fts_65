@@ -1,0 +1,33 @@
+<% provide :title, t("suggest_questions.title") %>
+<div class="td-question col-sm-10 col-sm-offset-1
+  admin-suggest-question suggest-question">
+  <h1><%= t "suggest_questions.title" %></h1>
+  <table class="table table-hover table-striped table-question">
+    <thead>
+      <tr>
+        <th><%= t "users.title" %>
+        </th>
+        <th><%= t "questions.title" %>
+        </th>
+        <th><%= t "suggest_questions.subject" %>
+        </th>
+        <th><%= t "suggest_questions.status" %></th>
+        <th><%= t :action %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @suggest_question %>
+    </tbody>
+  </table>
+  <div class="suggest-answer">
+    <ol>
+      <% @suggest_question.suggest_answers.each do |suggest_answer| %>
+        <li>
+          <b><%= t "suggest_questions.answer" %>:</b> 
+          <%= suggest_answer.answer %>, 
+          <%= suggest_answer.is_correct %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
