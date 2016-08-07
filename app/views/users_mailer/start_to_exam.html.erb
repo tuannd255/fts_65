@@ -1,0 +1,6 @@
+<h1><%= t :hello %></span></h1>
+<p>
+  <%= t "mail.start_to_exam", name: @exam.subject.name %>
+  <%= t :in %>
+  <%= l @exam.created_at, format: :default  %>
+</p>
