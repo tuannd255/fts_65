@@ -1,32 +1,39 @@
 <% provide :title, t(:log_in) %>
-<h1><%= t :log_in %></h1>
-<div class="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3">
-  <%= form_for resource, as: resource_name,
-    url: session_path(resource_name) do |f| %>
-    <%= devise_error_messages! %>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
-    </div>
+<div class="sign-in" style="min-height: 750px;">
+  <div class="col-sm-7 col-xs-7 sign-in-left">
+    <h2 class="text-left"><b><%= t :log_in %></b></h2>
+    <%= form_for resource, as: resource_name,
+      url: session_path(resource_name) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="input">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control signin-input" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off",
-        class: "form-control" %>
-    </div>
+      <div class="input">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control signin-input" %>
+      </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="checkbox center">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox center">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions center">
+        <%= f.submit t(:log_in), class: "btn btn-primary" %>
       </div>
     <% end %>
-
-    <div class="actions center">
-      <%= f.submit t(:log_in), class: "btn btn-primary" %>
-    </div>
-  <% end %>
-  <div class="center">
-    <%= link_to t(:signup), new_user_registration_path %>
+  </div>
+  <div class="col-sm-5 col-xs-5 sign-in-right">
+    <p><b><%= t "users.no_account" %></b></p>
+    <%= link_to t(:signup), new_user_registration_path,
+      class: "btn btn-primary" %>
+    <p><b><%= t :or %></b></p>
+    <%= link_to t("home.log_in_with_fb"),
+      user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
   </div>
 </div>

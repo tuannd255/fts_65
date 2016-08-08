@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= full_title yield :title %></title>
+    <link rel="shortcut icon" href="http://i.imgur.com/Afhf4kW.png">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", media: "all",
       "data-turbolinks-track": "reload" %>
@@ -12,9 +13,19 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="container">
-      <%= render "layouts/flash" %>
-      <%= yield %>
+    <div class="container-fluid row">
+      <% if user_signed_in? && current_user.is_admin? %>
+        <div id="wrapper">
+          <div class="flash"><%= render "layouts/flash" %></div>
+          <%= render "layouts/side_bar" %>
+          <div class="page-content-wrapper">
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <div class="flash"><%= render "layouts/flash" %></div>
+        <%= yield %>
+      <% end %>
     </div>
     <%= render "layouts/footer" %>
   </body>

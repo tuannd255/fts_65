@@ -8,5 +8,5 @@
   <td><%= t "exams.score_form", score: exam.score,
     total: exam.subject.question_number %></td>
   <td><%= link_to t("exams.#{exam.status}"), exam_path(exam),
-    class: "btn btn-primary btn-view" unless exam.uncheck? %></td>
+    class: "btn btn-primary btn-view" %></td>
 </tr>
