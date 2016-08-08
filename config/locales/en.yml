@@ -63,6 +63,7 @@ en:
     record_not_found: Sorry, no record of %{column_name} was found!
     subject_nil: Subject not found
     cant_access: Can not access
+    unckeck: Exam uncheck
   footer:
     content: Footer
   home:
@@ -84,6 +85,7 @@ en:
   edit: Edit
   action: Action
   log_out: Log out
+  signin: Sign in
   back: Back
   rails: Rails tutorial
   signup: Sign up now!
@@ -133,12 +135,15 @@ en:
     index: Index
     add_condition: Add Conditions
     all: All users
+    no_account: You have no account?
+    an_account: You have an account?
   answers: Answers
   check: Check
   approve: approve
   reject: reject
   hello: Hello
   in: in
+  or: Or
   questions:
     create_success: Question created
     create_fail: Question create fail

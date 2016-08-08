@@ -1,5 +1,5 @@
 <% provide :title, t("users.index") %>
-<div class="col-md-8 col-md-offset-2 users">
+<div class="col-sm-10 col-sm-offset-1 users">
   <h1><%= t "users.all" %></h1>
   <%= search_form_for @search, url: admin_users_path do |f| %>
     <%= f.submit t("users.search"), class: "btn btn-success" %>

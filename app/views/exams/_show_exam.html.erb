@@ -4,7 +4,7 @@
   <%= t "exams.score_form", score: @exam.score,
     total: @exam.subject.question_number %>
 </h3>
-<div class="col-sm-8 col-sm-offset-2 do-exam">
+<div class="col-sm-10 col-sm-offset-1 do-exam">
   <%= form_for @exam do |exam| %>
     <ol>
       <%= exam.fields_for :results do |result| %>

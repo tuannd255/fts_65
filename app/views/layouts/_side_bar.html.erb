@@ -1,0 +1,55 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <%= link_to t("home.name"), admin_root_path %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_root_path do %>
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <%= t "home.name" %>
+        <% end %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_users_path do %>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <%= t "users.title" %>
+        <% end %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_exams_path do %>
+          <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+          <%= t "exams.title" %>
+        <% end %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_subjects_path do %>
+          <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+          <%= t "subjects.title" %>
+        <% end %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_questions_path do %>
+          <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          <%= t "questions.title" %>
+        <% end %>
+      </li>
+      <li class="panel-group hvr-bounce-to-left">
+        <%= link_to admin_suggest_questions_path do %>
+          <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+          <%= t "suggest_questions.title" %>
+        <% end %>
+      </li>
+      <li class="panel-group">
+        <a href="#account" data-toggle="collapse" class="hvr-bounce-to-left">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+          <%= current_user.name.capitalize %>
+        </a>
+        <ul id="account" class="panel-collapse collapse">
+          <li class="hvr-bounce-to-left">
+            <%= link_to t(:log_out), destroy_user_session_path,
+              method: :delete %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>

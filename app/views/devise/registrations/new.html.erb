@@ -1,44 +1,50 @@
 <% provide :title, t("home.signup") %>
-<div class="col-md-6 col-md-offset-3">
-  <h1><%= t "home.signup" %></h1>
+<div class="sign-in" style="min-height: 750px;">
+  <div class="col-sm-7 col-xs-7 sign-in-left">
+    <h2 class="text-left"><%= t "home.signup" %></h2>
 
-  <%= form_for resource, as: resource_name,
-    url: registration_path(resource_name) do |f| %>
-    <%= devise_error_messages! %>
+    <%= form_for resource, as: resource_name,
+      url: registration_path(resource_name) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: true, class: "form-control" %>
-    </div>
+      <div class="input">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control signin-input" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
-    </div>
+      <div class="input">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control signin-input" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <i>
-        <%= t "users.leave_blank" %>
-      </i>
-      <% if @minimum_password_length %>
-        <em><%= t "users.minimum_password_length",
-          minpasslength: @minimum_password_length %></em>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "off",
-        class: "form-control" %>
-    </div>
+      <div class="input">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em><%= t "users.minimum_password_length",
+            minpasslength: @minimum_password_length %></em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control signin-input" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off",
-        class: "form-control" %>
-    </div>
+      <div class="input">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control signin-input" %>
+      </div>
 
-    <div class="actions center">
-      <%= f.submit t("users.#{params[:action]}"),
-        class: "btn btn-primary submit-btn" %>
-    </div>
-  <% end %>
-  <%= link_to t(:log_in), new_session_path(resource_name) %>
+      <div class="actions center">
+        <%= f.submit t("users.#{params[:action]}"),
+          class: "btn btn-primary submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-5 col-xs-5 sign-in-right">
+    <p><b><%= t "users.an_account" %></b></p>
+    <%= link_to t(:signin), new_user_session_path,
+      class: "btn btn-primary" %>
+    <p><b><%= t :or %></b></p>
+    <%= link_to t("home.log_in_with_fb"),
+      user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
+  </div>
 </div>

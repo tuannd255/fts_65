@@ -1,6 +1,6 @@
 <% provide :title, t("exams.title") %>
 <div class="exams-index col-sm-10 col-sm-offset-1">
-  <%= form_for @exam, html: {class: "row"} do |f| %>
+  <%= form_for @exam, remote: true, html: {class: "row"} do |f| %>
     <div class="col-sm-3">
       <%= f.select :subject_id,
         options_from_collection_for_select(@subjects, :id, :name), {},
@@ -24,8 +24,9 @@
         <th><%= t :action %></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="render-exam">
       <%= render @exams %>
+      <%= paginate @exams %>
     </tbody>
   </table>
 </div>
