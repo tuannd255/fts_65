@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
     if user.is_admin?
       can :read, :all
-      can :manage, Subject
+      can :manage, [Subject, Question]
       can [:edit, :update], [Exam, Result]
       can [:read, :update], SuggestQuestion
       can [:edit, :update, :destroy], User do |other_user|

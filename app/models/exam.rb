@@ -11,6 +11,8 @@ class Exam < ActiveRecord::Base
   after_create :create_result_for_exam
   after_update :sent_mail_to_status_change
 
+  scope :order_by_time, ->{order created_at: :desc}
+
   def remaining_time
     init? || testing? ? subject.duration * Settings.minutes -
       (Time.zone.now - started_at).to_i : 0

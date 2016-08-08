@@ -3,9 +3,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_params, only: [:new, :edit]
 
   def index
-    @search = Question.search params[:q]
-    @questions = @search.result.page params[:page]
-    @search.build_condition
+    load_questions
   end
 
   def new
@@ -37,11 +35,15 @@ class Admin::QuestionsController < ApplicationController
 
   def destroy
     if @question.destroy
-      flash[:success] = t "questions.delete_success"
+      flash.now[:success] = t "questions.delete_success"
     else
-      flash[:danger] = t "questions.delete_fail"
+      flash.now[:danger] = t "questions.delete_fail"
     end
-    redirect_to admin_questions_path
+    load_questions
+    respond_to do |format|
+      format.html {redirect_to admin_questions_path}
+      format.js
+    end
   end
 
   private
@@ -53,5 +55,11 @@ class Admin::QuestionsController < ApplicationController
   def load_params
     @subjects = Subject.all
     @question_types = Question.question_types
+  end
+
+  def load_questions
+    @search = Question.search params[:q]
+    @questions = @search.result.page params[:page]
+    @search.build_condition
   end
 end
