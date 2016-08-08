@@ -1,5 +1,5 @@
 <% provide :title, t("subjects.title") %>
-<div class="col col-md-8 col-md-offset-2">
+<div class="col col-md-10 col-md-offset-1">
   <h1><%= t "subjects.title" %></h1>
   <h3 class="center">
     <%= link_to t("subjects.new_subject"), new_admin_subject_path,
@@ -8,9 +8,10 @@
   <table class="table table-hover table-striped">
     <thead>
       <tr>
-        <th><%= t "subjects.name" %></th>
-        <th><%= t "subjects.question_number" %></th>
-        <th><%= t "subjects.duration" %></th>
+        <th><%= sort_link @search, :name, t("subjects.name") %></th>
+        <th><%= sort_link @search, :question_number,
+          t("subjects.question_number") %></th>
+        <th><%= sort_link @search, :duration, t("subjects.duration") %></th>
       </tr>
     </thead>
     <tbody>

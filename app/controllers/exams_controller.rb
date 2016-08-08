@@ -5,7 +5,7 @@ class ExamsController < ApplicationController
   def index
     @subjects = Subject.order :name
     @exam = Exam.new
-    @exams = current_user.exams.includes :subject
+    load_exams
   end
 
   def show
@@ -24,11 +24,15 @@ class ExamsController < ApplicationController
     else
       @exam = current_user.exams.build exam_params
       if @exam.save
-        flash[:success] = t "exams.created"
+        flash.now[:success] = t "exams.created"
       else
-        flash[:danger] = t "exams.create_fail"
+        flash.now[:danger] = t "exams.create_fail"
       end
-      redirect_to exams_path
+      load_exams
+      respond_to do |format|
+        format.html {redirect_to exams_path}
+        format.js
+      end
     end
   end
 
@@ -69,8 +73,13 @@ class ExamsController < ApplicationController
         redirect_to exams_path
       end
     when "uncheck"
-      flash[:danger] = t "flash.cant_access"
+      flash[:danger] = t "flash.unckeck"
       redirect_to exams_path
     end
+  end
+
+  def load_exams
+    @exams = current_user.exams.order_by_time.includes(:subject)
+      .page params[:page]
   end
 end

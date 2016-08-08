@@ -1,8 +1,11 @@
 class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource only: :index
 
   def index
-    @subjects = @subjects.page params[:page]
+    @search = Subject.search params[:q]
+    @subjects = @search.result.order(:name).page params[:page]
+    @search.build_condition
   end
 
   def new
