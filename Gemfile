@@ -6,7 +6,7 @@ gem "carrierwave", "0.10.0"
 gem "config", "1.2.1"
 gem "bootstrap-sass", "3.2.0.0"
 gem "kaminari"
-gem "sass-rails", "5.0.2"
+gem "sass-rails", "5.0.6"
 gem "uglifier", "2.5.3"
 gem "coffee-rails", "4.1.0"
 gem "jquery-rails", "4.0.3"
@@ -20,6 +20,10 @@ gem "cancancan"
 gem "ransack", "1.7"
 gem "i18n-js", ">= 3.0.0.rc11"
 gem "jquery-countdown-rails"
+gem "sidekiq"
+gem "sinatra", require: false
+gem "whenever", require: false
+gem "sprockets", "3.7"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

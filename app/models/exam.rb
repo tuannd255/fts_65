@@ -9,6 +9,7 @@ class Exam < ActiveRecord::Base
   enum status: {init: 0, testing: 1, uncheck: 2, checked: 3}
 
   after_create :create_result_for_exam
+  after_update :sent_mail_to_status_change
 
   def remaining_time
     init? || testing? ? subject.duration * Settings.minutes -
@@ -29,6 +30,16 @@ class Exam < ActiveRecord::Base
   def update_state_for_results
     results.each do |result|
       result.update_state
+    end
+  end
+
+  def sent_mail_to_status_change
+    if self.status_changed? from: "init", to: "testing"
+      UserWorker.perform_async UserWorker::START_EXAM,
+        self.user_id, self.id
+    elsif self.status_changed? from: "testing", to: "uncheck"
+      UserWorker.perform_async UserWorker::FINISH_EXAM,
+        self.user_id, self.id
     end
   end
 

@@ -64,7 +64,10 @@ class ExamsController < ApplicationController
     when "checked"
       flash[:success] = t "exams.result", score: @exam.score
     when "testing"
-      flash.now[:danger] = t "exams.finished" if @exam.time_out?
+      if @exam.time_out?
+        flash.now[:danger] = t "exams.finished"
+        redirect_to exams_path
+      end
     when "uncheck"
       flash[:danger] = t "flash.cant_access"
       redirect_to exams_path

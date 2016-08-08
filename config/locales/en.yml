@@ -137,6 +137,8 @@ en:
   check: Check
   approve: approve
   reject: reject
+  hello: Hello
+  in: in
   questions:
     create_success: Question created
     create_fail: Question create fail
@@ -215,4 +217,7 @@ en:
   boolean:
     true: true
     false: false
-
+  mail:
+    start_to_exam: You have start exam %{name}
+    finish_to_exam: You have finish exam %{name}
+    average: Report your average score of month
