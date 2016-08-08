@@ -13,7 +13,7 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="container-fluid row">
+    <div class="container-fluid">
       <% if user_signed_in? && current_user.is_admin? %>
         <div id="wrapper">
           <div class="flash"><%= render "layouts/flash" %></div>

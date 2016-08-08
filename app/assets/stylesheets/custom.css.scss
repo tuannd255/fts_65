@@ -12,7 +12,9 @@ body {
   margin: 0;
   padding-bottom: 30px;
   min-height: 100%;
-  background-color: #fafafa;
+}
+.container-fluid {
+  padding: 0px;
 }
 section {
   overflow: auto;
@@ -41,7 +43,7 @@ textarea {
 .navbar-inverse .navbar-nav > .open > a,
   .navbar-inverse .navbar-nav > .open > a:hover,
   .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: yellow;
+  background-color: #1CAEC5 ;
   color: #000;
 }
 @media (max-width: 768px){
@@ -338,6 +340,7 @@ footer {
   border-top: 1px solid #eaeaea;
   color: #777;
   z-index: 20;
+  height: 30px;
 }
 footer a {
   color: #555;
@@ -416,12 +419,12 @@ thead {
     border-radius: 4px;
   }
   .uncheck {
-    @extend .btn-info;
+    @extend .btn-danger;
     padding: 2px;
     border-radius: 4px;
   }
   .checked {
-    @extend .btn-danger;
+    @extend .btn-info;
     padding: 2px;
     border-radius: 4px;
   }
@@ -480,7 +483,7 @@ thead {
       cursor: pointer;
       position: absolute;
       width: 100%;
-      left: -315px;
+      left: -365px;
       -ms-transform: scale(2);
       -moz-transform: scale(2);
       -webkit-transform: scale(2);
@@ -490,10 +493,11 @@ thead {
     span {
       margin-left: 50px;
       font-weight: normal;
+      font-size: 16px;
     }
     .list-group-item-success {
-      color: #fff;
-      background-color: green;
+      color: red;
+      background: transparent;
     }
   }
   .question-content:hover {
@@ -516,12 +520,29 @@ thead {
       font-size: 18px;
     }
   }
+  .true-show {
+    color: green;
+    font-size: 18px;
+  }
+  .false-show {
+    color: red;
+    font-size: 18px;
+  }
 }
 @media(max-width:1192px) {
   .do-exam {
     .question-content {
       input[type="checkbox"] {
         left: -250px;
+      }
+    }
+  }
+}
+@media(min-width:1400px) {
+  .do-exam {
+    .question-content {
+      input[type="checkbox"] {
+        left: -415px;
       }
     }
   }
@@ -578,6 +599,7 @@ thead {
   }
   .signin-input {
     border-color: #fff;
+    color: #fff;
   }
   .sign-in-left {
     border-right: 2px solid #fff;
@@ -589,4 +611,7 @@ thead {
 }
 .subjects {
   padding-top: 50px;
+}
+.btn-fb {
+  width: 200px;
 }

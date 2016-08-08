@@ -4,7 +4,7 @@ class Admin::ExamsController < ApplicationController
 
   def index
     @search = @exams.search params[:q]
-    @exams = @search.result.order(:status).includes(:subject).page params[:page]
+    @exams = @search.result.includes(:subject).page params[:page]
   end
 
   def edit

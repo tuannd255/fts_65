@@ -9,11 +9,13 @@
     <%= link_to_add_fields t(:add_condition), f, :condition %>
   <% end %>
   <table class="table table-hover table-striped">
-    <tr>
-      <th><%= sort_link @search, :name, t("users.name") %></th>
-      <th><%= sort_link @search, :email, t("users.email") %></th>
-      <th><%= t :action %></th>
-    </tr>
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :name, t("users.name") %></th>
+        <th><%= sort_link @search, :email, t("users.email") %></th>
+        <th><%= t :action %></th>
+      </tr>
+    </thead>
     <%= render @users %>
   </table>
   <%= paginate @users %>

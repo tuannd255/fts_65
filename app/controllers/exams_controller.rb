@@ -18,9 +18,8 @@ class ExamsController < ApplicationController
 
   def create
     @subject = Subject.find_by id: params[:exam][:subject_id]
-    if @subject.nil?
-      flash[:danger] = t "exams.create_fail"
-      redirect_to subjects_path
+    if @subject.nil? || (@subject.questions.size == 0)
+      flash.now[:danger] = t "exams.create_fail"
     else
       @exam = current_user.exams.build exam_params
       if @exam.save
@@ -28,11 +27,11 @@ class ExamsController < ApplicationController
       else
         flash.now[:danger] = t "exams.create_fail"
       end
-      load_exams
-      respond_to do |format|
-        format.html {redirect_to exams_path}
-        format.js
-      end
+    end
+    load_exams
+    respond_to do |format|
+      format.html {redirect_to exams_path}
+      format.js
     end
   end
 
@@ -70,6 +69,7 @@ class ExamsController < ApplicationController
     when "testing"
       if @exam.time_out?
         flash.now[:danger] = t "exams.finished"
+        @exam.uncheck!
         redirect_to exams_path
       end
     when "uncheck"

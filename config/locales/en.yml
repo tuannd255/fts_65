@@ -226,3 +226,6 @@ en:
     start_to_exam: You have start exam %{name}
     finish_to_exam: You have finish exam %{name}
     average: Report your average score of month
+  errors:
+    question_number: can > 0
+    duration: can > 0

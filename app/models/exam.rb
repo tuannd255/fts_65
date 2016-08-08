@@ -9,7 +9,7 @@ class Exam < ActiveRecord::Base
   enum status: {init: 0, testing: 1, uncheck: 2, checked: 3}
 
   after_create :create_result_for_exam
-  after_update :sent_mail_to_status_change
+  #after_update :sent_mail_to_status_change
 
   scope :order_by_time, ->{order created_at: :desc}
 

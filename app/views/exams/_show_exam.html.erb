@@ -12,7 +12,9 @@
           <div class="question-title">
             <%= result.object.question.question %>
           </div>
-          <%= result.object.state.to_s.humanize %>
+          <span class="<%= result.object.state %>-show">
+            <%= result.object.state.to_s.humanize %>
+          </span>
           <% result.object.question.answers.each do |answer| %>
             <div class="question-content">
               <%= result.check_box :multiple_answers,

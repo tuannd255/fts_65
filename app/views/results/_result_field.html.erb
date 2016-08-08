@@ -3,7 +3,7 @@
   <% result.object.question.answers.each do |answer| %>
     <div class="question-content">
       <%= result.check_box :multiple_answers,
-        {checked:result.object.multiple_answers.include?(answer.id.to_s),
+        {checked: result.object.multiple_answers.include?(answer.id.to_s),
         multiple: true},
         answer.id, false %>
       <span><%= answer.answer %></span><br>

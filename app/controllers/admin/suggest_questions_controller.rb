@@ -3,7 +3,7 @@ class Admin::SuggestQuestionsController < ApplicationController
 
   def index
     @search = @suggest_questions.search params[:q]
-    @suggest_questions = @search.result.order(:status).page params[:page]
+    @suggest_questions = @search.result.page params[:page]
   end
 
   def show
